@@ -22,18 +22,30 @@
 
 .logo,
 .mobileLogo {
-  color: $text;
-  font-size: 0.98rem;
-  font-weight: 950;
-  letter-spacing: -0.055em;
-
-  span {
-    color: $gold-light;
-  }
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  line-height: 0;
 }
 
 .logo {
   justify-self: start;
+}
+
+.logoImage {
+  display: block;
+  width: clamp(118px, 9vw, 152px);
+  height: auto;
+  max-height: 34px;
+  object-fit: contain;
+}
+
+.mobileLogoImage {
+  display: block;
+  width: 128px;
+  height: auto;
+  max-height: 34px;
+  object-fit: contain;
 }
 
 .desktopNav {
@@ -125,8 +137,6 @@
     top: 26px;
   }
 }
-
-
 
 .menuButtonHidden {
   opacity: 0;
@@ -402,7 +412,8 @@
   }
 
   .logo {
-    font-size: 0.9rem;
+    width: 118px;
+    max-height: 32px;
   }
 
   .desktopNav,

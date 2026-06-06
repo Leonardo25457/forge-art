@@ -68,8 +68,17 @@ export default function Navbar() {
   return (
     <header className={styles.navbar}>
       <div className={styles.inner}>
-        <a href="#inicio" className={styles.logo} onClick={closeMenu}>
-          FORGE <span>&</span> ART
+        <a
+          href="#inicio"
+          className={styles.logo}
+          onClick={closeMenu}
+          aria-label="Ir al inicio de Forge & Art"
+        >
+          <img
+            src="/brand/forge_art_header_logo.svg"
+            alt="Forge & Art"
+            className={styles.logoImage}
+          />
         </a>
 
         <nav className={styles.desktopNav} aria-label="Navegación principal">
@@ -86,7 +95,9 @@ export default function Navbar() {
 
         <button
           type="button"
-          className={`${styles.menuButton} ${isOpen ? styles.menuButtonHidden : ""}`}
+          className={`${styles.menuButton} ${
+            isOpen ? styles.menuButtonHidden : ""
+          }`}
           onClick={() => setIsOpen((current) => !current)}
           aria-label="Abrir menú"
           aria-expanded={isOpen}
@@ -97,15 +108,26 @@ export default function Navbar() {
       </div>
 
       <aside
-        className={`${styles.mobilePanel} ${isOpen ? styles.mobilePanelOpen : ""}`}
+        className={`${styles.mobilePanel} ${
+          isOpen ? styles.mobilePanelOpen : ""
+        }`}
         aria-hidden={!isOpen}
       >
         <div className={styles.mobileGlow} />
 
         <div className={styles.mobileShell}>
           <div className={styles.mobileTop}>
-            <a href="#inicio" className={styles.mobileLogo} onClick={closeMenu}>
-              FORGE <span>&</span> ART
+            <a
+              href="#inicio"
+              className={styles.mobileLogo}
+              onClick={closeMenu}
+              aria-label="Ir al inicio de Forge & Art"
+            >
+              <img
+                src="/brand/forge_art_header_logo.svg"
+                alt="Forge & Art"
+                className={styles.mobileLogoImage}
+              />
             </a>
 
             <button
