@@ -1,0 +1,55 @@
+@use "../abstracts/variables" as *;
+
+html {
+  scroll-padding-top: 92px;
+}
+
+body {
+  background: $background;
+  color: $text;
+}
+
+.container {
+  width: 100%;
+  max-width: $container;
+  margin: 0 auto;
+  padding-inline: 2rem;
+}
+
+.section {
+  padding: 8rem 0;
+}
+
+.reveal {
+  will-change: transform, opacity;
+}
+
+::selection {
+  background: rgba(199, 169, 107, 0.35);
+  color: #ffffff;
+}
+
+body {
+  cursor: none;
+}
+
+a,
+button {
+  cursor: none;
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 76px;
+  }
+
+  body,
+  a,
+  button {
+    cursor: auto;
+  }
+
+  .container {
+    padding-inline: 1.2rem;
+  }
+}

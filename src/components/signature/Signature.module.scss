@@ -1,0 +1,211 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.signature {
+  position: relative;
+  padding: 8rem 0;
+  overflow: hidden;
+  color: #101418;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.55), transparent 34%),
+    #e7e0d6;
+  border-bottom: 1px solid rgba(16, 20, 24, 0.12);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: auto -12% -22% auto;
+    width: 44rem;
+    height: 44rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(129, 89, 47, 0.22), transparent 68%);
+    pointer-events: none;
+  }
+}
+
+.inner {
+  @include container;
+  position: relative;
+  z-index: 1;
+}
+
+.editorial {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr) 360px;
+  gap: 3rem;
+  align-items: start;
+  margin-bottom: 4rem;
+
+  > span {
+    color: #7a5a30;
+    font-size: 0.74rem;
+    font-weight: 900;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    max-width: 780px;
+    color: #11161b;
+    line-height: 0.94;
+    letter-spacing: -0.075em;
+    text-transform: uppercase;
+  }
+
+  p {
+    color: rgba(17, 22, 27, 0.66);
+    font-size: 1rem;
+  }
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid rgba(17, 22, 27, 0.12);
+  background: rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(18px);
+}
+
+.pillar {
+  min-height: 300px;
+  padding: 2rem;
+  border-right: 1px solid rgba(17, 22, 27, 0.12);
+
+  &:last-child {
+    border-right: 0;
+  }
+
+  > span {
+    display: inline-flex;
+    width: 54px;
+    height: 54px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(17, 22, 27, 0.2);
+    border-radius: 999px;
+    color: #7a5a30;
+    font-weight: 900;
+  }
+
+  h3 {
+    margin-top: 3.5rem;
+    color: #11161b;
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    line-height: 1;
+    letter-spacing: -0.055em;
+  }
+
+  p {
+    margin-top: 1rem;
+    color: rgba(17, 22, 27, 0.65);
+    font-size: 0.94rem;
+  }
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 3rem;
+  margin-top: 1rem;
+  padding: 2rem;
+  border: 1px solid rgba(17, 22, 27, 0.12);
+  background: #11161b;
+  color: #ffffff;
+
+  > div:first-child > span {
+    color: $gold-light;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    max-width: 480px;
+    margin-top: 1rem;
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    line-height: 0.96;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+  }
+}
+
+.familyGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+
+  a {
+    display: flex;
+    min-height: 66px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    background: rgba(255, 255, 255, 0.035);
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition:
+      background 0.3s ease,
+      color 0.3s ease,
+      transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      background: $gold-light;
+      color: #11161b;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .editorial,
+  .catalog {
+    grid-template-columns: 1fr;
+  }
+
+  .pillars {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pillar:nth-child(2) {
+    border-right: 0;
+  }
+
+  .pillar:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(17, 22, 27, 0.12);
+  }
+}
+
+@media (max-width: 768px) {
+  .signature {
+    padding: 5rem 0;
+  }
+
+  .editorial {
+    gap: 1.4rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .pillars,
+  .familyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .pillar {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid rgba(17, 22, 27, 0.12);
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  .catalog {
+    padding: 1.2rem;
+  }
+}

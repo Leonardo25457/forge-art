@@ -1,0 +1,81 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.footer {
+  border-top: 1px solid $border;
+  background: #05070a;
+}
+
+.inner,
+.bottom {
+  @include container;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 2rem;
+  padding-block: 3rem;
+}
+
+.logo {
+  display: inline-flex;
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+
+  span {
+    margin: 0 0.18rem;
+    color: $gold;
+  }
+}
+
+.claim {
+  max-width: 360px;
+  margin-top: 1rem;
+  color: $text-secondary;
+  font-size: 0.9rem;
+}
+
+.links,
+.social {
+  display: grid;
+  gap: 0.75rem;
+
+  a {
+    width: fit-content;
+    color: $text-secondary;
+    font-size: 0.76rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $gold-light;
+    }
+  }
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-block: 1.2rem;
+  border-top: 1px solid $border;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@include tablet {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+
+  .bottom {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+}

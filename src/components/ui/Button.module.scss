@@ -1,0 +1,62 @@
+@use "../../styles/abstracts/variables" as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 1.8rem;
+  border: 1px solid transparent;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.primary {
+  background: linear-gradient(135deg, #f2d388, #c7a96b);
+  color: #05070a;
+
+  &::after {
+    content: "→";
+    margin-left: 0.9rem;
+    font-size: 1rem;
+  }
+
+  &:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+  }
+}
+
+.secondary {
+  border-color: rgba(231, 200, 137, 0.42);
+  color: $text;
+  background: rgba(255, 255, 255, 0.02);
+
+  &::after {
+    content: "→";
+    margin-left: 0.9rem;
+    color: $gold-light;
+    font-size: 1rem;
+  }
+
+  &:hover {
+    border-color: $gold-light;
+    color: $gold-light;
+    transform: translateY(-2px);
+  }
+}
+
+.ghost {
+  color: $text-secondary;
+
+  &:hover {
+    color: $text;
+  }
+}

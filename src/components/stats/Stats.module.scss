@@ -1,0 +1,61 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.stats {
+  padding: 1rem 0;
+  background: #05070a;
+  border-bottom: 1px solid $border;
+}
+
+.inner {
+  @include container;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid $border;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.item {
+  padding: 2.5rem;
+  border-right: 1px solid $border;
+
+  &:last-child {
+    border-right: 0;
+  }
+
+  h3 {
+    color: $text;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.08em;
+
+    span {
+      margin-left: 0.35rem;
+      color: $gold-light;
+      font-size: clamp(1rem, 1.8vw, 1.5rem);
+      letter-spacing: -0.04em;
+    }
+  }
+
+  p {
+    max-width: 260px;
+    margin-top: 0.9rem;
+    color: $text-secondary;
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+
+  .item {
+    border-right: 0;
+    border-bottom: 1px solid $border;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,442 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.process {
+  position: relative;
+  padding: 8rem 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 10%, rgba(122, 90, 48, 0.14), transparent 26%),
+    linear-gradient(180deg, #e8e1d6 0%, #d8cfc0 100%);
+  color: #11161b;
+  border-bottom: 1px solid rgba(17, 22, 27, 0.14);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(17, 22, 27, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(17, 22, 27, 0.045) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8), transparent);
+    pointer-events: none;
+  }
+}
+
+.inner {
+  @include container;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr) 340px;
+  gap: 3rem;
+  align-items: start;
+  margin-bottom: 3rem;
+}
+
+.eyebrow {
+  color: #7a5a30;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.intro {
+  .label {
+    display: inline-flex;
+    margin-bottom: 1.1rem;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid rgba(122, 90, 48, 0.2);
+    color: #7a5a30;
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    max-width: 980px;
+    color: #11161b;
+    line-height: 0.9;
+    letter-spacing: -0.075em;
+    text-transform: uppercase;
+  }
+
+  p {
+    max-width: 680px;
+    margin-top: 1.5rem;
+    color: rgba(17, 22, 27, 0.65);
+    font-size: 1rem;
+  }
+}
+
+.visual {
+  position: relative;
+  min-height: 300px;
+  border: 1px solid rgba(17, 22, 27, 0.12);
+  background:
+    radial-gradient(circle at 72% 24%, rgba(122, 90, 48, 0.2), transparent 28%),
+    rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(122, 90, 48, 0.18);
+    transform: rotate(-10deg);
+  }
+
+  &::before {
+    width: 220px;
+    height: 220px;
+    right: -70px;
+    top: -60px;
+  }
+
+  &::after {
+    width: 170px;
+    height: 170px;
+    left: -55px;
+    bottom: -55px;
+  }
+}
+
+.badge {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  left: 1.3rem;
+  z-index: 2;
+  padding: 1.2rem;
+  border: 1px solid rgba(122, 90, 48, 0.2);
+  background: rgba(232, 225, 214, 0.72);
+  backdrop-filter: blur(12px);
+
+  strong {
+    display: block;
+    color: #11161b;
+    font-size: 4.8rem;
+    line-height: 0.82;
+    letter-spacing: -0.09em;
+  }
+
+  span {
+    display: block;
+    max-width: 220px;
+    margin-top: 0.8rem;
+    color: rgba(17, 22, 27, 0.62);
+    font-size: 0.88rem;
+  }
+}
+
+.visualGrid {
+  position: absolute;
+  inset: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.7rem;
+  opacity: 0.7;
+
+  span {
+    border: 1px solid rgba(17, 22, 27, 0.08);
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 3rem;
+  border: 1px solid rgba(17, 22, 27, 0.14);
+
+  div {
+    display: flex;
+    min-height: 120px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.4rem 1.6rem;
+    border-right: 1px solid rgba(17, 22, 27, 0.14);
+
+    &:last-child {
+      border-right: 0;
+    }
+  }
+
+  strong {
+    color: #11161b;
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    line-height: 0.9;
+    letter-spacing: -0.08em;
+  }
+
+  span {
+    max-width: 180px;
+    color: rgba(17, 22, 27, 0.58);
+    font-size: 0.86rem;
+    text-align: right;
+  }
+}
+
+.workflow {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+}
+
+.rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 33px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(122, 90, 48, 0.5), transparent);
+}
+
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 2rem;
+  min-height: 210px;
+  padding: 1rem;
+  border: 1px solid rgba(17, 22, 27, 0.12);
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+
+  &:hover {
+    transform: translateX(8px);
+    border-color: rgba(122, 90, 48, 0.26);
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0.12));
+
+    .stepNumber {
+      color: rgba(17, 22, 27, 0.36);
+    }
+
+    .stepDot {
+      background: #7a5a30;
+      box-shadow: 0 0 35px rgba(122, 90, 48, 0.5);
+    }
+  }
+}
+
+.stepTop {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.stepNumber {
+  color: rgba(17, 22, 27, 0.17);
+  font-size: clamp(3.4rem, 7vw, 6.8rem);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.09em;
+  transition: color 0.3s ease;
+}
+
+.stepDot {
+  position: absolute;
+  top: 50%;
+  left: -1.15rem;
+  width: 13px;
+  height: 13px;
+  border-radius: 999px;
+  background: #9b743d;
+  transform: translateY(-50%);
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.stepContent {
+  display: grid;
+  align-content: center;
+  padding: 1.4rem 1.2rem 1.4rem 0;
+
+  > span {
+    color: #7a5a30;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    margin-top: 0.65rem;
+    color: #11161b;
+    font-size: clamp(1.6rem, 2.5vw, 2.6rem);
+    line-height: 0.95;
+    letter-spacing: -0.065em;
+  }
+
+  p {
+    max-width: 720px;
+    margin-top: 0.85rem;
+    color: rgba(17, 22, 27, 0.62);
+    font-size: 0.96rem;
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1.2rem;
+
+  small {
+    padding: 0.5rem 0.65rem;
+    border: 1px solid rgba(122, 90, 48, 0.18);
+    color: rgba(17, 22, 27, 0.68);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+}
+
+.note {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px auto;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 3rem;
+  padding: 2rem;
+  border: 1px solid rgba(17, 22, 27, 0.14);
+  background: #11161b;
+  color: $text;
+
+  span {
+    color: $gold-light;
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    max-width: 680px;
+    margin-top: 0.65rem;
+    color: $text;
+    font-size: clamp(1.8rem, 3vw, 3.4rem);
+    line-height: 0.92;
+    letter-spacing: -0.07em;
+    text-transform: uppercase;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.94rem;
+  }
+
+  a {
+    display: inline-flex;
+    min-height: 52px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.3rem;
+    border: 1px solid $gold-light;
+    background: $gold-light;
+    color: #05070a;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 1100px) {
+  .header {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .visual {
+    min-height: 220px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stats div {
+    border-right: 0;
+    border-bottom: 1px solid rgba(17, 22, 27, 0.14);
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  .note {
+    grid-template-columns: 1fr;
+  }
+
+  .note p {
+    max-width: 680px;
+  }
+
+  .note a {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 768px) {
+  .process {
+    padding: 5rem 0;
+  }
+
+  .step {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .stepTop {
+    justify-content: start;
+    place-items: start;
+  }
+
+  .stepDot {
+    left: 0;
+    top: auto;
+    bottom: -0.2rem;
+    transform: none;
+  }
+
+  .stepContent {
+    padding: 0 0.4rem 1rem;
+  }
+
+  .rail {
+    display: none;
+  }
+
+  .stats div {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .stats span {
+    text-align: left;
+  }
+
+  .note {
+    padding: 1.4rem;
+  }
+
+  .note a {
+    width: 100%;
+  }
+}

@@ -1,0 +1,194 @@
+@use "../../styles/abstracts/variables" as *;
+
+.card {
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+  border: 1px solid $border;
+  background: $card;
+  isolation: isolate;
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 1rem;
+    z-index: 2;
+    border: 1px solid rgba(231, 200, 137, 0.16);
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.97);
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease;
+  }
+
+  &:hover {
+    border-color: rgba(231, 200, 137, 0.36);
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.42);
+
+    &::after {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    img {
+      transform: scale(1.08);
+      filter: grayscale(24%) contrast(1.08) brightness(0.88);
+    }
+
+    .content {
+      transform: translateY(-12px);
+    }
+
+    .cta {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+.large {
+  min-height: 680px;
+}
+
+.imageWrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(88%) contrast(1.06) brightness(0.72);
+    transform: scale(1);
+    transition:
+      transform 1.15s ease,
+      filter 1.15s ease;
+  }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(5, 7, 10, 0.02) 0%, rgba(5, 7, 10, 0.94) 100%),
+    radial-gradient(circle at 74% 18%, rgba(231, 200, 137, 0.22), transparent 30%);
+}
+
+.content {
+  position: absolute;
+  right: 1.8rem;
+  bottom: 2rem;
+  left: 1.8rem;
+  z-index: 3;
+  max-width: 600px;
+  transition: transform 0.35s ease;
+
+  .category {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: $gold-light;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    color: $text;
+    font-size: clamp(2rem, 3vw, 3.5rem);
+    line-height: 0.92;
+    letter-spacing: -0.07em;
+    text-transform: uppercase;
+  }
+
+  p {
+    max-width: 430px;
+    margin-top: 1rem;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.9rem;
+  }
+}
+
+.number {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 3;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.cta {
+  position: absolute;
+  top: 1.4rem;
+  left: 1.4rem;
+  z-index: 3;
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  padding: 0 1rem;
+  border: 1px solid rgba(231, 200, 137, 0.35);
+  background: rgba(5, 7, 10, 0.72);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+
+  &:hover {
+    background: $gold-light;
+    color: #05070a;
+  }
+}
+
+@media (max-width: 768px) {
+  .card,
+  .large {
+    min-height: 500px;
+  }
+
+  .card {
+    border-color: rgba(231, 200, 137, 0.24);
+
+    &::after {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    img {
+      transform: scale(1.05);
+      filter: grayscale(35%) contrast(1.08) brightness(0.82);
+    }
+  }
+
+  .cta {
+    opacity: 1;
+    transform: none;
+  }
+
+  .content {
+    right: 1.2rem;
+    bottom: 1.4rem;
+    left: 1.2rem;
+    transform: translateY(-8px);
+
+    h3 {
+      font-size: clamp(2.1rem, 12vw, 3.7rem);
+    }
+  }
+}

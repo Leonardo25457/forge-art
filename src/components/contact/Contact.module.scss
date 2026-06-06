@@ -1,0 +1,510 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.contact {
+  position: relative;
+  padding: 8rem 0;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(5, 7, 10, 0.9), rgba(5, 7, 10, 0.98)),
+    url("https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?auto=format&fit=crop&w=1800&q=80")
+      center/cover;
+  border-bottom: 1px solid $border;
+}
+
+.inner {
+  @include container;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(420px, 0.72fr);
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.content,
+.form {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(6, 8, 11, 0.76);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.28);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(2rem, 5vw, 4rem);
+
+  > span {
+    color: $gold-light;
+    font-size: 0.74rem;
+    font-weight: 900;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    max-width: 780px;
+    margin-top: 1.2rem;
+    line-height: 0.9;
+    letter-spacing: -0.075em;
+    text-transform: uppercase;
+  }
+
+  p {
+    max-width: 660px;
+    margin-top: 1.5rem;
+    color: $text-secondary;
+    font-size: 1.02rem;
+  }
+}
+
+.briefBox {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  h3 {
+    color: #ffffff;
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    line-height: 1;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 1rem;
+    margin-top: 1.4rem;
+  }
+
+  li {
+    position: relative;
+    padding-left: 1.7rem;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.9rem;
+    line-height: 1.45;
+
+    &::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: $gold-light;
+      font-weight: 900;
+    }
+  }
+}
+
+.form {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  padding: clamp(1.5rem, 3vw, 2.3rem);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0.8rem;
+    z-index: 0;
+    border: 1px solid rgba(231, 200, 137, 0.18);
+    pointer-events: none;
+  }
+
+  label,
+  .fieldFull {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 0.55rem;
+    margin-top: 1rem;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    outline: none;
+    background: rgba(255, 255, 255, 0.045);
+    color: #ffffff;
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.5;
+    text-transform: none;
+    transition:
+      border-color 0.25s ease,
+      background 0.25s ease,
+      box-shadow 0.25s ease;
+
+    &:focus {
+      border-color: rgba(231, 200, 137, 0.74);
+      background: rgba(255, 255, 255, 0.07);
+      box-shadow: 0 0 0 4px rgba(231, 200, 137, 0.08);
+    }
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.34);
+    }
+  }
+
+  input {
+    min-height: 54px;
+    padding: 0 1rem;
+  }
+
+  textarea {
+    min-height: 130px;
+    resize: vertical;
+    padding: 1rem;
+  }
+}
+
+.formHeader {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  span {
+    color: $gold-light;
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    margin-top: 0.8rem;
+    color: #ffffff;
+    font-size: clamp(2rem, 3vw, 3.2rem);
+    line-height: 0.92;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin-top: 0.9rem;
+    color: $text-secondary;
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+}
+
+.gridTwo {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.fieldFull {
+  grid-column: 1 / -1;
+}
+
+.form .fieldFullOpen {
+  z-index: 200;
+}
+
+.fieldLabel {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.customSelect {
+  position: relative;
+  z-index: 210;
+}
+
+.selectButton {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 58px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 0.72rem 0 1.2rem;
+  border: 1px solid rgba(231, 200, 137, 0.28);
+  outline: none;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(231, 200, 137, 0.065),
+      rgba(255, 255, 255, 0.018)
+    ),
+    rgba(255, 255, 255, 0.045);
+  color: #ffffff;
+  cursor: pointer;
+  text-align: left;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(
+        circle at 88% 50%,
+        rgba(231, 200, 137, 0.16),
+        transparent 28%
+      ),
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.04),
+        transparent
+      );
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  > span:first-child {
+    position: relative;
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.35;
+    text-transform: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    border-color: rgba(231, 200, 137, 0.65);
+    background:
+      linear-gradient(
+        135deg,
+        rgba(231, 200, 137, 0.1),
+        rgba(255, 255, 255, 0.025)
+      ),
+      rgba(255, 255, 255, 0.06);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+.selectButtonOpen {
+  border-color: rgba(231, 200, 137, 0.95);
+  box-shadow:
+    0 0 0 1px rgba(231, 200, 137, 0.18),
+    0 18px 60px rgba(0, 0, 0, 0.24);
+
+  .selectIcon {
+    background: $gold-light;
+    color: #05070a;
+    border-color: $gold-light;
+
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.selectIcon {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(231, 200, 137, 0.34);
+  color: $gold-light;
+  background: rgba(5, 7, 10, 0.36);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+
+  svg {
+    transition: transform 0.25s ease;
+  }
+}
+
+.selectDropdown {
+  position: absolute;
+  top: calc(100% + 0.65rem);
+  right: 0;
+  left: 0;
+  z-index: 999;
+  display: grid;
+  gap: 0.42rem;
+  max-height: 270px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+  pointer-events: auto;
+  padding: 0.65rem;
+  border: 1px solid rgba(231, 200, 137, 0.42);
+  background: #07090d;
+  box-shadow:
+    0 36px 95px rgba(0, 0, 0, 0.82),
+    0 0 0 999px rgba(5, 7, 10, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.045);
+  animation: selectEnter 0.22s ease both;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(231, 200, 137, 0.6) rgba(255, 255, 255, 0.08);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(
+        circle at 90% 12%,
+        rgba(231, 200, 137, 0.14),
+        transparent 34%
+      ),
+      linear-gradient(180deg, #0e1118 0%, #07090d 100%);
+  }
+
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(231, 200, 137, 0.6);
+  }
+}
+
+.selectOption {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  min-height: 48px;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #101319;
+  color: #ffffff;
+  cursor: pointer;
+  text-align: left;
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s ease;
+
+  strong {
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1.3;
+    text-transform: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    border-color: rgba(231, 200, 137, 0.42);
+    background: #171b22;
+    outline: none;
+    transform: translateX(4px);
+
+    strong {
+      color: #ffffff;
+    }
+  }
+}
+
+.selectOptionActive {
+  border-color: transparent;
+  background: linear-gradient(135deg, #f2d388, #c7a96b);
+
+  strong {
+    color: #05070a;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background: linear-gradient(135deg, #f2d388, #c7a96b);
+  }
+}
+
+.submitButton {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-height: 58px;
+  margin-top: 1.25rem;
+  padding: 0 1.4rem;
+  border: 0;
+  background: linear-gradient(135deg, #f2d388, #c7a96b);
+  color: #05070a;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+
+  &::after {
+    content: "→";
+    margin-left: 0.9rem;
+    font-size: 1rem;
+  }
+
+  &:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes selectEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 980px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 5rem 0;
+  }
+
+  .briefBox ul,
+  .gridTwo {
+    grid-template-columns: 1fr;
+  }
+
+  .selectDropdown {
+    max-height: 245px;
+  }
+
+  .selectOption {
+    min-height: 52px;
+  }
+}

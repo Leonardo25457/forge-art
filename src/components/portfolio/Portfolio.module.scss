@@ -1,0 +1,89 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.portfolio {
+  padding: 8rem 0;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(231, 200, 137, 0.08), transparent 28%),
+    #05070a;
+  border-bottom: 1px solid $border;
+}
+
+.inner {
+  @include container;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 4rem;
+  margin-bottom: 4rem;
+
+  > span {
+    color: $gold-light;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    max-width: 940px;
+    line-height: 0.92;
+    letter-spacing: -0.075em;
+    text-transform: uppercase;
+  }
+
+  p {
+    max-width: 660px;
+    margin-top: 1.4rem;
+    color: $text-secondary;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+}
+
+.grid article {
+  grid-column: span 6;
+}
+
+.grid article:nth-child(1),
+.grid article:nth-child(4) {
+  grid-column: span 7;
+}
+
+.grid article:nth-child(2),
+.grid article:nth-child(3),
+.grid article:nth-child(5) {
+  grid-column: span 5;
+}
+
+@media (max-width: 900px) {
+  .header {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .grid article,
+  .grid article:nth-child(1),
+  .grid article:nth-child(2),
+  .grid article:nth-child(3),
+  .grid article:nth-child(4),
+  .grid article:nth-child(5) {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio {
+    padding: 5rem 0;
+  }
+
+  .header {
+    margin-bottom: 2.5rem;
+  }
+}
