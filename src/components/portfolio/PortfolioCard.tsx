@@ -18,9 +18,13 @@ export default function PortfolioCard({
   index,
 }: PortfolioCardProps) {
   return (
-    <article className={`${styles.card} reveal ${index === 0 || index === 3 ? styles.large : ""}`}>
+    <article
+      className={`${styles.card} reveal ${
+        index === 0 || index === 3 ? styles.large : ""
+      }`}
+    >
       <div className={styles.imageWrapper}>
-        <img src={`${image}?auto=format&fit=crop&w=1300&q=82`} alt={title} />
+        <img src={image} alt={title} loading="lazy" />
       </div>
 
       <div className={styles.overlay} />

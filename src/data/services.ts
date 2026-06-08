@@ -34,7 +34,7 @@ export const services: Service[] = [
       "Mesas, consolas, barras, escritorios, bancas y piezas especiales con proporciones premium, estructura sólida y acabados pensados para durar.",
     summary:
       "Diseñamos piezas funcionales y visualmente protagonistas para hogares, oficinas, terrazas, restaurantes y espacios comerciales.",
-    image: "https://images.unsplash.com/photo-1616627561950-9f746e330187",
+    image: "/images/portfolio/mesanogal.jpg",
     gallery: [
       "https://images.unsplash.com/photo-1618220179428-22790b461013",
       "https://images.unsplash.com/photo-1600210492493-0946911123ea",
@@ -72,7 +72,7 @@ export const services: Service[] = [
       "Elementos arquitectónicos que combinan seguridad, estructura y presencia visual para proyectos residenciales, comerciales o de remodelación.",
     summary:
       "Creamos soluciones estructurales con carácter: barandas metálicas, escaleras, pasamanos, cerramientos y accesos especiales.",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    image: "/images/portfolio/escaleraflotante.png",
     gallery: [
       "https://images.unsplash.com/photo-1600607688969-a5bfcd646154",
       "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea",
