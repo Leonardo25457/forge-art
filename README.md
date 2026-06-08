@@ -6,8 +6,6 @@ El proyecto está orientado a negocios o talleres que fabrican mobiliario a medi
 
 ## Demo
 
-Próximamente en Vercel:
-
 ```txt
 https://forge-art.vercel.app/
 ```
