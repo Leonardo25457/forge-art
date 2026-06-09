@@ -218,7 +218,7 @@ export default function Services() {
           onMouseEnter={() => setIsCarouselPaused(true)}
           onMouseLeave={() => setIsCarouselPaused(false)}
         >
-          {services.map((service, index) => {
+          {services.map((service) => {
             const Icon = service.icon;
 
             return (
@@ -237,8 +237,6 @@ export default function Services() {
                 <div className={styles.cardOverlay} />
 
                 <div className={styles.cardTop}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-
                   <div className={styles.icon}>
                     <Icon />
                   </div>

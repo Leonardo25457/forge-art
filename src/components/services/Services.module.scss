@@ -6,8 +6,16 @@
   padding: 8rem 0;
   overflow: hidden;
   background:
-    radial-gradient(circle at 10% 15%, rgba(231, 200, 137, 0.08), transparent 28%),
-    radial-gradient(circle at 90% 40%, rgba(255, 255, 255, 0.045), transparent 30%),
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(231, 200, 137, 0.08),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 40%,
+      rgba(255, 255, 255, 0.045),
+      transparent 30%
+    ),
     linear-gradient(180deg, #070b11 0%, #05070a 100%);
   border-bottom: 1px solid $border;
 
@@ -169,22 +177,19 @@
   z-index: 1;
   background:
     linear-gradient(180deg, rgba(5, 7, 10, 0.05) 0%, rgba(5, 7, 10, 0.96) 86%),
-    radial-gradient(circle at 75% 20%, rgba(231, 200, 137, 0.2), transparent 32%);
+    radial-gradient(
+      circle at 75% 20%,
+      rgba(231, 200, 137, 0.2),
+      transparent 32%
+    );
 }
 
 .cardTop {
   position: relative;
   z-index: 3;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 1.5rem;
-
-  > span {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.78rem;
-    font-weight: 900;
-    letter-spacing: 0.14em;
-  }
 }
 
 .icon {
@@ -294,7 +299,11 @@
   overscroll-behavior: contain;
   border: 1px solid rgba(231, 200, 137, 0.24);
   background:
-    radial-gradient(circle at 92% 8%, rgba(231, 200, 137, 0.12), transparent 28%),
+    radial-gradient(
+      circle at 92% 8%,
+      rgba(231, 200, 137, 0.12),
+      transparent 28%
+    ),
     #080b10;
   box-shadow: 0 40px 140px rgba(0, 0, 0, 0.62);
 }
@@ -332,7 +341,11 @@
     inset: 0;
     background:
       linear-gradient(180deg, rgba(5, 7, 10, 0.02), rgba(5, 7, 10, 0.74)),
-      radial-gradient(circle at 70% 20%, rgba(231, 200, 137, 0.18), transparent 35%);
+      radial-gradient(
+        circle at 70% 20%,
+        rgba(231, 200, 137, 0.18),
+        transparent 35%
+      );
   }
 }
 

@@ -29,7 +29,7 @@ export default function PortfolioCard({
 
       <div className={styles.overlay} />
 
-      <div className={styles.number}>{String(index + 1).padStart(2, "0")}</div>
+      {/* <div className={styles.number}>{String(index + 1).padStart(2, "0")}</div> */}
 
       <a
         className={styles.cta}
